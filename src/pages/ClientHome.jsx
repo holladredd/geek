@@ -120,57 +120,6 @@ const ClientHome = ({ backgrounds }) => {
             <SignUp />
           </TabPanel>
         </TabContext>
-
-        {/* <Box
-          sx={{
-            margin: 4,
-            display: "flex",
-            flexDirection: "column",
-          }}
-        >
-          <Typography
-            variant="h4"
-            color=" #222222 "
-            fontFamily="short stack"
-            sx={{
-              textShadow: "2px 2px #000000",
-            }}
-            fontWeight="bold"
-            fontSize={40}
-          >
-            GEEK INFO CORPORATION
-          </Typography>
-          <Typography variant="body" color="#222222" fontFamily="anta">
-            eLIBRARY and eBOOK Store
-          </Typography>
-          <Typography variant="caption" color="#222222" fontFamily="roboto">
-            Discover a world of knowledge with our eLibrary website. Access
-            thousands of books, articles, and resources at your fingertips.
-          </Typography>
-          <Typography variant="caption" color="#222222" fontFamily="roboto">
-            Explore diverse genres, from literature to science, anytime,
-            anywhere.
-          </Typography>
-          <Typography variant="caption" color="#222222" fontFamily="roboto">
-            Dive into a virtual realm of learning and enrichment Join our
-            community of readers today and embark on a journey of discovery.
-          </Typography>
-          <Box>
-            <Button
-              variant="contained"
-              fontFamily="short stack"
-              onClick={() => go("/Bookshelf")}
-              sx={{
-                borderRadius: 50,
-                margin: 1,
-                textTransform: "initial",
-                backgroundColor: "#00a32c",
-              }}
-            >
-              <Typography sx={{ color: "#ffffffa0" }}>Get Started</Typography>
-            </Button>
-          </Box>
-        </Box> */}
       </Box>
     </Box>
   );

@@ -15,13 +15,13 @@ import { BookState } from "../../context/BookProvider";
 // import { BR } from "../fucntions/CMfunction";
 
 const Ranking = () => {
-  const { ratings, books, setLoading } = BookState();
+  const { ratings, books } = BookState();
   // const { bookId } = useParams();
   const book = books.map((book) => {
     const rating = ratings?.find((rating) => rating.bookid === book._id) || {};
     return { ...rating, ...book };
   });
-  setLoading(false);
+  // setLoading(false);
   return (
     <>
       <Grid

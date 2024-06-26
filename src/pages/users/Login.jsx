@@ -24,57 +24,67 @@ const Login = () => {
   });
   const [blind, setBlind] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState();
-  const [valid, setValid] = useState();
+  // const [error, setError] = useState();
+  // const [valid, setValid] = useState();
 
   const navigate = useNavigate();
   const handleLogin = (e) => {
     e.preventDefault();
     setLoading(true);
     const call = new Api();
-    let isvalid = true;
-    // let vaidationMessage={},
-    let validationErrors = {};
-    if (formData.username == "" && formData.password == "") {
-      isvalid = false;
-      validationErrors.formData = "fields can not be empty";
-    }
-    if (formData.username == null || formData.username.length == "") {
-      isvalid = false;
-      validationErrors.username = "username not recognised";
-    } else if (!/\S+@\S+\.\S+/.test(formData?.username.length)) {
-      isvalid = false;
-      validationErrors.username = "username not valid";
-    }
-    if (formData.password === "" || formData.password === null) {
-      isvalid = false;
-      validationErrors.password = "password Required";
-    } else if (formData.password.length < 6) {
-      isvalid = false;
-      validationErrors.password = "password length atleast 6 char";
-    }
+    // let isvalid = true;
+    // // let vaidationMessage={},
+    // let validationErrors = {};
+    // if (formData.username == "" && formData.password == "") {
+    //   isvalid = false;
+    //   validationErrors.formData = "fields can not be empty";
+    // }
+    // if (formData.username == null || formData.username.length == "") {
+    //   isvalid = false;
+    //   validationErrors.username = "username not recognised";
+    // } else if (!/\S+@\S+\.\S+/.test(formData?.username.length)) {
+    //   isvalid = false;
+    //   validationErrors.username = "username not valid";
+    // }
+    // if (formData.password === "" || formData.password === null) {
+    //   isvalid = false;
+    //   validationErrors.password = "password Required";
+    // } else if (formData.password.length < 6) {
+    //   isvalid = false;
+    //   validationErrors.password = "password length atleast 6 char";
+    // }
     call
       .getUsers(formData)
-      .then((res) => {
-        res.data.map((users) => {
-          if (
-            formData.username === users.username &&
-            formData.password === users.password
-          ) {
-            if (formData.password !== null) {
-              navigate("/Bookshelf");
-              // setLoading(!loading);
-            } else {
-              isvalid = false;
-              validationErrors.password = "wrong password";
-            }
-          }
-        });
-        setLoading(false);
-        setError(validationErrors);
-        setValid(isvalid);
+      .then((result) => {
+        console.log(result);
+        if (result.data === "success") {
+          navigate("/Bookshelf");
+          // isvalid = true;
+          setLoading(false);
+        }
       })
       .catch((err) => console.log(err));
+
+    // .then((res) => {
+    //   res.data.map((users) => {
+    //     if (
+    //       formData.username === users.username &&
+    //       formData.password === users.password
+    //     ) {
+    //       if (formData.password !== null) {
+    //         navigate("/Bookshelf");
+    //         // setLoading(!loading);
+    //       } else {
+    //         isvalid = false;
+    //         validationErrors.password = "wrong password";
+    //       }
+    //     }
+    //   });
+    //   setLoading(false);
+    //   setError(validationErrors);
+    //   setValid(isvalid);
+    // })
+    // .catch((err) => console.log(err));
   };
   return (
     <PageTransition>
@@ -82,7 +92,6 @@ const Login = () => {
         sx={{
           width: "100%",
           height: "fit",
-
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
@@ -173,7 +182,7 @@ const Login = () => {
               ),
             }}
           />
-          {valid ? (
+          {/* {valid ? (
             <></>
           ) : (
             <Typography
@@ -187,7 +196,7 @@ const Login = () => {
               <br />
               {error?.password}
             </Typography>
-          )}
+          )} */}
           <Button
             variant="contained"
             type="submit"

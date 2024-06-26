@@ -10,20 +10,20 @@ import axios from "axios";
 
 // for mongodb server
 
-// class Api {
-//   constructor() {
-//     this.instance = axios.create({
-//       baseURL: "http://localhost:4321",
-//     });
-//   }
-
-// Live server connection
 class Api {
   constructor() {
     this.instance = axios.create({
-      baseURL: "https://geekserver.onrender.com",
+      baseURL: "http://localhost:4321",
     });
   }
+
+  // Live server connection
+  // class Api {
+  //   constructor() {
+  //     this.instance = axios.create({
+  //       baseURL: "https://geekserver.onrender.com",
+  //     });
+  //   }
   getBooks() {
     return this.instance.get("/books");
   }
@@ -48,8 +48,8 @@ class Api {
   createUsers(userData) {
     return this.instance.post("/users", { ...userData });
   }
-  getUsers() {
-    return this.instance.get("/users");
+  getUsers(formData) {
+    return this.instance.post("/users/login", formData);
   }
   PostComment(usercomment) {
     return this.instance.post("/comments", { ...usercomment });

@@ -19,9 +19,9 @@ import Api from "../../apis/Api";
 
 const SignUp = () => {
   const [userData, setUserData] = useState({
+    fullname: "",
     email: "",
     username: "",
-    age: "",
     password: "",
     confirmpassword: "",
   });
@@ -42,7 +42,6 @@ const SignUp = () => {
       userData.fullname == "" &&
       userData.email == "" &&
       userData.username == "" &&
-      userData.age == "" &&
       userData.password == "" &&
       userData.confirmpassword == ""
     ) {
@@ -51,17 +50,18 @@ const SignUp = () => {
       validationErrors.userData = "Details can not be empty";
       setLoading(false);
     }
-    if (userData.username !== null) {
-      isvalid = false;
-      validationErrors.username = "username already exist";
-      // alert("username already exist");
-      setLoading(false);
-    }
+    // if (userData.username !== null) {
+    //   isvalid = false;
+    //   validationErrors.username = "username already exist";
+
+    //   setLoading(false);
+    // }
     if (userData.password.length < 6) {
       isvalid = false;
       validationErrors.password = "password length atleast 6 char";
       setLoading(false);
-    } else if (userData.confirmpassword !== userData.password) {
+    }
+    if (userData.confirmpassword !== userData.password) {
       isvalid = false;
       validationErrors.confirmpassword =
         "password and confirm password not related";
@@ -69,16 +69,16 @@ const SignUp = () => {
       call
         .createUsers(newuser)
         .then(() => {
-          setError(validationErrors);
-          setValid(isvalid);
           setUserData({
+            fullname: "",
             email: "",
             username: "",
-            age: "",
             password: "",
             confirmpassword: "",
           });
-          // navigate("/Login");
+          alert("User created Successful");
+          setError(validationErrors);
+          setValid(isvalid);
         })
         .catch((err) => console.log(err));
       setLoading(false);
@@ -142,6 +142,15 @@ const SignUp = () => {
               },
             }}
           />
+          {valid ? null : (
+            <Typography
+              variant="caption"
+              color="#ff0000"
+              sx={{ width: "100%" }}
+            >
+              {error?.fullname}
+            </Typography>
+          )}
           <TextField
             variant="outlined"
             size="small"
@@ -171,6 +180,15 @@ const SignUp = () => {
               },
             }}
           />
+          {valid ? null : (
+            <Typography
+              variant="caption"
+              color="#ff0000"
+              sx={{ width: "100%" }}
+            >
+              {error?.email}
+            </Typography>
+          )}
           <TextField
             variant="outlined"
             size="small"
@@ -200,33 +218,15 @@ const SignUp = () => {
               },
             }}
           />
-          <TextField
-            variant="outlined"
-            size="small"
-            type="number"
-            placeholder="Age"
-            onChange={(e) => setUserData({ ...userData, age: e.target.value })}
-            sx={{
-              width: "100%",
-              margin: 1,
-              "& .MuiOutlinedInput-root": {
-                color: "#222222",
-                background: "#efebeb",
-
-                borderRadius: 5,
-              },
-              "&.Mui-focused": {
-                borderColor: "#ffffff40",
-                "& .MuiOutlinedInput-notchedOutline": {
-                  borderColor: "#ffffff40",
-                },
-              },
-              "& .MuiOutlinedInput-notchedOutline": {
-                borderColor: "#22222250",
-                borderWidth: "1px",
-              },
-            }}
-          />
+          {valid ? null : (
+            <Typography
+              variant="caption"
+              color="#ff0000"
+              sx={{ width: "100%" }}
+            >
+              {error?.username}
+            </Typography>
+          )}
           <TextField
             variant="outlined"
             size="small"
@@ -267,6 +267,15 @@ const SignUp = () => {
               ),
             }}
           />
+          {valid ? null : (
+            <Typography
+              variant="caption"
+              color="#ff0000"
+              sx={{ width: "100%" }}
+            >
+              {error?.password}
+            </Typography>
+          )}
           <TextField
             variant="outlined"
             size="small"
@@ -307,25 +316,13 @@ const SignUp = () => {
               ),
             }}
           />
-          {valid ? (
-            <></>
-          ) : (
+          {valid ? null : (
             <Typography
               variant="caption"
               color="#ff0000"
               sx={{ width: "100%" }}
             >
               {error?.userData}
-              <br />
-              {error?.fullname}
-              <br />
-              {error?.email}
-              <br />
-              {error?.username}
-              <br />
-              {error?.age}
-              <br />
-              {error?.password}
               <br />
               {error?.confirmpassword}
             </Typography>
