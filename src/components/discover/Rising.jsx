@@ -7,13 +7,13 @@ import {
   Typography,
   Box,
 } from "@mui/material";
-import { MdFavoriteBorder } from "react-icons/md";
+// import { MdFavoriteBorder } from "react-icons/md";
 
 import { Link } from "react-router-dom";
-import { kOrM } from "../fucntions/Bookfunction";
+// import { kOrM } from "../fucntions/Bookfunction";
 import { BookState } from "../../context/BookProvider";
 
-const Rising = ({books}) => {
+const Rising = ({ books }) => {
   const { ratings } = BookState();
   const book = books.map((book) => {
     const rating = ratings.find((rating) => rating.bookid === book._id) || {};
@@ -32,14 +32,14 @@ const Rising = ({books}) => {
         sx={{
           width: "100%",
           backgroundColor: "#01011800",
-          backdropFilter: "blur(5px)",
-          padding: 1,
-          borderRadius: 3,
+          // backdropFilter: "blur(5px)",
+          // padding: 0.5,
+          // borderRadius: 3,
           display: "flex",
           flexDirection: "column",
-          overflowX: "auto",
-          whiteSpace: "nowrap",
-          height: "25vh",
+          overflowX: "scroll",
+          // backgroundColor: "#000000",
+          height: "30vh",
         }}
       >
         {book
@@ -54,8 +54,9 @@ const Rising = ({books}) => {
               item
               key={id}
               sx={{
-                width: 70,
-                margin: 0.7,
+                width: 100,
+                margin: 1,
+                height: "fit",
                 backgroundColor: "#00000000",
                 zIndex: 0,
               }}
@@ -64,44 +65,29 @@ const Rising = ({books}) => {
                 <CardMedia
                   component="img"
                   alt=""
-                  sx={{ borderRadius: 1.5, maxHeight: 115 }}
+                  sx={{
+                    borderRadius: 1.5,
+                    height: 135,
+                    boxShadow: "2px 0px 10px  #222222a0",
+                  }}
                   image={book?.src}
                 />
+
                 <Box
                   sx={{
-                    width: "fit",
                     display: "flex",
-                    border: "1px solid #00a32ca0",
-                    background: "#22222280",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    position: "absolute",
-                    top: 5,
-                    right: 8,
-                    padding: 0.1,
-                    borderRadius: 1,
+                    flexDirection: "column",
+                    whiteSpace: "wrap",
+                    marginTop: 0.5,
+                    // position: "absolute",
+                    // bottom: 0,
                   }}
                 >
-                  <MdFavoriteBorder size={10} color="white" />
-                  <Typography
-                    elevation={0}
-                    fontFamily="roboto"
-                    variant="caption"
-                    color="#ffffff"
-                    sx={{
-                      fontSize: 8,
-                      marginLeft: 0.2,
-                    }}
-                  >
-                    {kOrM(book?.likes)}
-                  </Typography>
-                </Box>
-                <Box sx={{ display: "flex", flexDirection: "column" }}>
                   <Typography
                     fontFamily="roboto"
                     variant="caption"
-                    color="#222222"
-                    sx={{ fontSize: 10, fontWeight: "bold" }}
+                    color="#00a32c"
+                    sx={{ fontSize: 13, fontWeight: "bold" }}
                   >
                     {book?.title}
                   </Typography>

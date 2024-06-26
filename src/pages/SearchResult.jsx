@@ -82,6 +82,7 @@ const SearchResult = () => {
                   backgroundColor: "#01011800",
                   marginLeft: 0,
                   margin: 1,
+                  boxShadow: "2px 0px 10px #22222230",
                 }}
               >
                 <CardActionArea
@@ -99,7 +100,7 @@ const SearchResult = () => {
                       borderRadius: 0,
                       display: "block",
 
-                      maxWidth: "70px",
+                      maxWidth: "90px",
                     }}
                     image={book?.src}
                   />

@@ -35,6 +35,7 @@ const PostComment = ({ bookId }) => {
             userid: "",
             date: "",
           });
+
           call
             .getComments()
             .then((res) => setComments(res.data))

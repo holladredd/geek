@@ -21,7 +21,7 @@ const Bookshelf = () => {
           justifyContent: "center",
           flexDirection: "column",
           minHeight: "100vh",
-          background: "#efebeb",
+          background: "#ebebeb",
         }}
       >
         <>

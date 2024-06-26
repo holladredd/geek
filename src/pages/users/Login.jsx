@@ -35,11 +35,11 @@ const Login = () => {
     // let isvalid = true;
     // // let vaidationMessage={},
     // let validationErrors = {};
-    // if (formData.username == "" && formData.password == "") {
+    // if (formData.username === "" && formData.password === "") {
     //   isvalid = false;
     //   validationErrors.formData = "fields can not be empty";
     // }
-    // if (formData.username == null || formData.username.length == "") {
+    // if (formData.username === null || formData.username.length === "") {
     //   isvalid = false;
     //   validationErrors.username = "username not recognised";
     // } else if (!/\S+@\S+\.\S+/.test(formData?.username.length)) {

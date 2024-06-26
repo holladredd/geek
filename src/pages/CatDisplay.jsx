@@ -37,7 +37,13 @@ const CatDisplay = ({ books, ratings }) => {
         >
           {genreName}
         </Typography>
-        <Box sx={{ width: "100%", display: "flex", flexDirection: "column" }}>
+        <Box
+          sx={{
+            width: "100%",
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
           {book
             ?.sort((a, b) => {
               return b.likes - a.likes;
@@ -52,6 +58,7 @@ const CatDisplay = ({ books, ratings }) => {
                   backgroundColor: "#01011800",
                   marginLeft: 0,
                   margin: 1,
+                  boxShadow: "2px 0px 10px #22222230",
                 }}
               >
                 <CardActionArea
@@ -69,7 +76,7 @@ const CatDisplay = ({ books, ratings }) => {
                       borderRadius: 0,
                       display: "block",
 
-                      maxWidth: "70px",
+                      maxWidth: "90px",
                     }}
                     image={book?.src}
                   />

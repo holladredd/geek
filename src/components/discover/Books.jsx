@@ -30,8 +30,8 @@ const Books = () => {
         padding: 1,
         backgroundColor: "#efebeb",
         flexDirection: "column",
-
-        height: "47vh",
+        // backgroundColor: "#000000",
+        height: "40vh",
         overflowX: "scroll",
         whiteSpace: "nowrap",
       }}
@@ -52,6 +52,7 @@ const Books = () => {
               height: "80",
               margin: 1,
               backgroundColor: "#00000000",
+              boxShadow: "2px 0px 10px  #22222230",
             }}
           >
             <CardActionArea
@@ -62,8 +63,17 @@ const Books = () => {
                 justifyContent: "flex-start",
               }}
             >
-              <Box>
-                <Typography variant="h6" color="#00a32c" sx={{ margin: 1 }}>
+              <Box
+                sx={{
+                  position: "absolute",
+                  bottom: -10,
+                  left: -2,
+                  borderRadius: 2,
+                  padding: 1,
+                  backgroundColor: "#00a32c",
+                }}
+              >
+                <Typography variant="h6" color="#ffffff" sx={{ fontSize: 14 }}>
                   {index}
                 </Typography>
               </Box>
@@ -72,8 +82,9 @@ const Books = () => {
                 alt={book?.title}
                 sx={{
                   borderRadius: 1.5,
-                  width: 50,
-                  height: "80",
+                  width: 70,
+                  height: 100,
+                  boxShadow: "2px 0px 10px  #222222a0",
                 }}
                 image={book?.src}
               />
@@ -82,6 +93,7 @@ const Books = () => {
                   display: "flex",
                   flexDirection: "column",
                   marginLeft: 1,
+                  paddingLeft: 1,
                 }}
               >
                 <Typography
