@@ -39,11 +39,11 @@ const SignUp = () => {
     const newuser = { ...userData };
     const call = new Api();
     if (
-      userData.fullname == "" &&
-      userData.email == "" &&
-      userData.username == "" &&
-      userData.password == "" &&
-      userData.confirmpassword == ""
+      userData.fullname === "" &&
+      userData.email === "" &&
+      userData.username === "" &&
+      userData.password === "" &&
+      userData.confirmpassword === ""
     ) {
       isvalid = false;
 
@@ -53,8 +53,16 @@ const SignUp = () => {
     // if (userData.username !== null) {
     //   isvalid = false;
     //   validationErrors.username = "username already exist";
-
+    //   alert("username already exist");
     //   setLoading(false);
+    //   return;
+    // }
+    // if (userData.email !== null) {
+    //   isvalid = false;
+    //   validationErrors.email = "email already exist";
+    //   alert("email already exist");
+    //   setLoading(false);
+    //   return;
     // }
     if (userData.password.length < 6) {
       isvalid = false;
@@ -69,6 +77,9 @@ const SignUp = () => {
       call
         .createUsers(newuser)
         .then(() => {
+          alert("User created Successful");
+          setError(validationErrors);
+          setValid(isvalid);
           setUserData({
             fullname: "",
             email: "",
@@ -76,9 +87,6 @@ const SignUp = () => {
             password: "",
             confirmpassword: "",
           });
-          alert("User created Successful");
-          setError(validationErrors);
-          setValid(isvalid);
         })
         .catch((err) => console.log(err));
       setLoading(false);

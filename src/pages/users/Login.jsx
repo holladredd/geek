@@ -25,66 +25,41 @@ const Login = () => {
   const [blind, setBlind] = useState(false);
   const [loading, setLoading] = useState(false);
   // const [error, setError] = useState();
-  // const [valid, setValid] = useState();
+  const [usernameValid, setusernameValid] = useState(true);
+  const [passwordValid, setpasswordValid] = useState(true);
 
   const navigate = useNavigate();
   const handleLogin = (e) => {
     e.preventDefault();
+    setusernameValid(true);
+    setpasswordValid(true);
     setLoading(true);
     const call = new Api();
-    // let isvalid = true;
-    // // let vaidationMessage={},
-    // let validationErrors = {};
-    // if (formData.username === "" && formData.password === "") {
-    //   isvalid = false;
-    //   validationErrors.formData = "fields can not be empty";
-    // }
-    // if (formData.username === null || formData.username.length === "") {
-    //   isvalid = false;
-    //   validationErrors.username = "username not recognised";
-    // } else if (!/\S+@\S+\.\S+/.test(formData?.username.length)) {
-    //   isvalid = false;
-    //   validationErrors.username = "username not valid";
-    // }
-    // if (formData.password === "" || formData.password === null) {
-    //   isvalid = false;
-    //   validationErrors.password = "password Required";
-    // } else if (formData.password.length < 6) {
-    //   isvalid = false;
-    //   validationErrors.password = "password length atleast 6 char";
-    // }
     call
       .getUsers(formData)
-      .then((result) => {
-        console.log(result);
-        if (result.data === "success") {
+      .then((res) => {
+        console.log(res);
+
+        if (res.data === "wronguser") {
+          alert("Wrong user");
+          setusernameValid(false);
+          setLoading(false);
+          return;
+        }
+
+        if (res.data === "wrongPassword") {
+          alert("password not correct");
+          setpasswordValid(false);
+          setLoading(false);
+          return;
+        }
+
+        if (res.data === "success") {
           navigate("/Bookshelf");
-          // isvalid = true;
           setLoading(false);
         }
       })
       .catch((err) => console.log(err));
-
-    // .then((res) => {
-    //   res.data.map((users) => {
-    //     if (
-    //       formData.username === users.username &&
-    //       formData.password === users.password
-    //     ) {
-    //       if (formData.password !== null) {
-    //         navigate("/Bookshelf");
-    //         // setLoading(!loading);
-    //       } else {
-    //         isvalid = false;
-    //         validationErrors.password = "wrong password";
-    //       }
-    //     }
-    //   });
-    //   setLoading(false);
-    //   setError(validationErrors);
-    //   setValid(isvalid);
-    // })
-    // .catch((err) => console.log(err));
   };
   return (
     <PageTransition>
@@ -114,7 +89,7 @@ const Login = () => {
             variant="outlined"
             size="small"
             type="text"
-            placeholder="Email or Password"
+            placeholder="Username"
             onChange={(e) =>
               setFormData({ ...formData, username: e.target.value })
             }
@@ -135,11 +110,20 @@ const Login = () => {
                 },
               },
               "& .MuiOutlinedInput-notchedOutline": {
-                borderColor: "#22222250",
+                borderColor: usernameValid ? "#00a32c" : "#ff0000",
                 borderWidth: "1px",
               },
             }}
           />
+          {usernameValid ? null : (
+            <Typography
+              variant="caption"
+              color="#ff0000"
+              sx={{ width: "100%" }}
+            >
+              Username Not valid
+            </Typography>
+          )}
           <TextField
             variant="outlined"
             size="small"
@@ -166,7 +150,7 @@ const Login = () => {
                 },
               },
               "& .MuiOutlinedInput-notchedOutline": {
-                borderColor: "#22222250",
+                borderColor: passwordValid ? "#00a32c" : "#ff0000",
                 borderWidth: "1px",
               },
             }}
@@ -182,6 +166,15 @@ const Login = () => {
               ),
             }}
           />
+          {passwordValid ? null : (
+            <Typography
+              variant="caption"
+              color="#ff0000"
+              sx={{ width: "100%" }}
+            >
+              password Not valid
+            </Typography>
+          )}
           {/* {valid ? (
             <></>
           ) : (
