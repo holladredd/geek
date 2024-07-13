@@ -1,14 +1,17 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/prop-types */
 import { useState } from "react";
-import { Masonry, TabContext, TabList, TabPanel } from "@mui/lab";
-import { Box, Card, CardMedia, Tab, Typography } from "@mui/material";
+import { Masonry } from "@mui/lab";
+import { Box, Card, CardMedia, Typography } from "@mui/material";
 import Login from "./users/Login";
+import { IoMdClose } from "react-icons/io";
 import SignUp from "./users/SignUp";
+import { Button } from "@mui/material";
 
 const ClientHome = ({ backgrounds }) => {
   // const go = useNavigate();
-  const [tabIndex, setTabIndex] = useState("1");
-
+  const [login, setLogin] = useState(true);
+  // setLogin(true);
   // const { backgrounds } = BookState();
   return (
     <Box
@@ -62,64 +65,78 @@ const ClientHome = ({ backgrounds }) => {
           borderTop: "2px solid #222222a0",
           borderBottom: "2px solid #222222a0",
           top: "0",
-          background: "#efebeb70",
+          background: "#efebebe0",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
           flexDirection: "column",
         }}
       >
-        <TabContext value={tabIndex}>
-          <Box
-            sx={{
-              width: "100%",
-              display: "flex",
-              justifyContent: "center",
-            }}
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-between ",
+            width: "100%",
+          }}
+        >
+          <Button
+            variant="text"
+            type="button"
+            color="success"
+            // sx={{ fontSize: 20 }}
+            onClick={() => setLogin(true)}
           >
-            <TabList
-              // colorScheme="green"
-              index={tabIndex}
-              // indicatorColor="#efebeb"
-              // textColor="#efebeb"
-              sx={{ "& .MuiTabs-indicator": { color: "#efebeb" } }}
-              onChange={(value, newValue) => {
-                setTabIndex(newValue);
+            <IoMdClose fontSize={30} />
+          </Button>
+        </Box>
+        {/* <Login /> */}
+        {login ? <Login /> : <SignUp />}
+        <Box
+          sx={{
+            width: "90%",
+            display: "flex",
+            justifyContent: "space-between",
+          }}
+        >
+          {login ? (
+            <Button
+              variant="text"
+              type="button"
+              color="success"
+              sx={{
+                marginLeft: "0",
+                textTransform: "initial",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
               }}
+              onClick={() => setLogin(false)}
             >
-              <Tab
-                w={"50%"}
-                label={
-                  <Typography variant="h5" sx={{ fontWeight: "bold" }}>
-                    Log in
-                  </Typography>
-                }
-                value="1"
-              />
-
-              <Tab
-                w={"50%"}
-                label={
-                  <Typography variant="h5" sx={{ fontWeight: "bold" }}>
-                    Sign Up
-                  </Typography>
-                }
-                value="2"
-              />
-              {/* <Typography variant="h5" color="initial">
-                  Sign Up
-                </Typography>
-              </Tab> */}
-            </TabList>
-          </Box>
-
-          <TabPanel value="1" width="100%">
-            <Login />
-          </TabPanel>
-          <TabPanel value="2">
-            <SignUp />
-          </TabPanel>
-        </TabContext>
+              <Typography variant="body2" color="success">
+                Don't have an account?
+              </Typography>
+            </Button>
+          ) : (
+            <Button
+              variant="text"
+              type="button"
+              color="success"
+              sx={{
+                marginLeft: "0",
+                textTransform: "initial",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+              }}
+              onClick={() => setLogin(true)}
+            >
+              <Typography variant="body2" color="success">
+                Already a user?
+              </Typography>
+            </Button>
+          )}
+          {/* <IoMdClose fontSize={30} /> */}
+        </Box>
       </Box>
     </Box>
   );

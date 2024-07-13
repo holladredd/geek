@@ -99,7 +99,7 @@ const SignUp = () => {
       <Box
         sx={{
           width: "100%",
-          height: "fit",
+          height: "85vh",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
@@ -131,12 +131,12 @@ const SignUp = () => {
             }
             sx={{
               width: "100%",
-              margin: 1,
+              marginTop: 2,
               "& .MuiOutlinedInput-root": {
                 color: "#222222",
-                background: "#efebeb",
+                background: "#22222210",
 
-                borderRadius: 5,
+                borderRadius: 2,
               },
               "&.Mui-focused": {
                 borderColor: "#ffffff40",
@@ -146,7 +146,7 @@ const SignUp = () => {
               },
               "& .MuiOutlinedInput-notchedOutline": {
                 borderColor: "#22222250",
-                borderWidth: "1px",
+                borderWidth: "0px",
               },
             }}
           />
@@ -169,12 +169,12 @@ const SignUp = () => {
             }
             sx={{
               width: "100%",
-              margin: 1,
+              marginTop: 2,
               "& .MuiOutlinedInput-root": {
                 color: "#222222",
-                background: "#efebeb",
+                background: "#22222210",
 
-                borderRadius: 5,
+                borderRadius: 2,
               },
               "&.Mui-focused": {
                 borderColor: "#ffffff40",
@@ -184,7 +184,7 @@ const SignUp = () => {
               },
               "& .MuiOutlinedInput-notchedOutline": {
                 borderColor: "#22222250",
-                borderWidth: "1px",
+                borderWidth: "0px",
               },
             }}
           />
@@ -207,12 +207,12 @@ const SignUp = () => {
             }
             sx={{
               width: "100%",
-              margin: 1,
+              marginTop: 2,
               "& .MuiOutlinedInput-root": {
                 color: "#222222",
-                background: "#efebeb",
+                background: "#22222210",
 
-                borderRadius: 5,
+                borderRadius: 2,
               },
               "&.Mui-focused": {
                 borderColor: "#ffffff40",
@@ -222,7 +222,7 @@ const SignUp = () => {
               },
               "& .MuiOutlinedInput-notchedOutline": {
                 borderColor: "#22222250",
-                borderWidth: "1px",
+                borderWidth: "0px",
               },
             }}
           />
@@ -245,12 +245,12 @@ const SignUp = () => {
             }
             sx={{
               width: "100%",
-              margin: 1,
+              marginTop: 2,
               "& .MuiOutlinedInput-root": {
                 color: "#222222",
-                background: "#efebeb",
+                background: "#22222210",
 
-                borderRadius: 5,
+                borderRadius: 2,
               },
               "&.Mui-focused": {
                 borderColor: "#ffffff40",
@@ -260,7 +260,7 @@ const SignUp = () => {
               },
               "& .MuiOutlinedInput-notchedOutline": {
                 borderColor: "#22222250",
-                borderWidth: "1px",
+                borderWidth: "0px",
               },
             }}
             InputProps={{
@@ -294,12 +294,12 @@ const SignUp = () => {
             }
             sx={{
               width: "100%",
-              margin: 1,
+              marginTop: 2,
               "& .MuiOutlinedInput-root": {
                 color: "#222222",
-                background: "#efebeb",
+                background: "#22222210",
 
-                borderRadius: 5,
+                borderRadius: 2,
               },
               "&.Mui-focused": {
                 borderColor: "#ffffff40",
@@ -309,7 +309,7 @@ const SignUp = () => {
               },
               "& .MuiOutlinedInput-notchedOutline": {
                 borderColor: "#22222250",
-                borderWidth: "1px",
+                borderWidth: "0px",
               },
             }}
             InputProps={{
@@ -341,9 +341,10 @@ const SignUp = () => {
             type="submit"
             color="success"
             sx={{
-              width: "90%",
-              backgroundColor: "#00a32c",
-              borderRadius: 5,
+              width: "100%",
+              marginTop: 2,
+              backgroundColor: "#222222",
+              borderRadius: 2,
               color: "#efebeb",
             }}
             onClick={handleSignup}

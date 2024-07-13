@@ -66,7 +66,7 @@ const Login = () => {
       <Box
         sx={{
           width: "100%",
-          height: "fit",
+          height: "85vh",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
@@ -75,16 +75,25 @@ const Login = () => {
         <Toolbar
           sx={{
             width: "100%",
+            // padding: 0,
             borderRadius: 3,
+            // backgroundColor: "#222222",
             backgroundColor: "#efebeba0",
             display: "flex",
             flexDirection: "column",
             height: "fit",
-            border: "1px solid #00a32c50",
+            // border: "1px solid #00a32c50",
             paddingTop: 2,
             paddingBottom: 2,
           }}
         >
+          <Typography
+            variant="h5"
+            color="initial"
+            sx={{ fontWeight: "semibold" }}
+          >
+            Login
+          </Typography>
           <TextField
             variant="outlined"
             size="small"
@@ -95,23 +104,25 @@ const Login = () => {
             }
             sx={{
               width: "100%",
-              margin: 1,
+              marginTop: 2,
 
               "& .MuiOutlinedInput-root": {
                 color: "#222222",
-                background: "#efebeb",
+                background: "#22222210",
 
-                borderRadius: 5,
+                borderRadius: 2,
               },
               "&.Mui-focused": {
                 borderColor: "#ffffff40",
+                borderWidth: "0px",
                 "& .MuiOutlinedInput-notchedOutline": {
                   borderColor: "#ffffff40",
+                  borderWidth: "0px",
                 },
               },
               "& .MuiOutlinedInput-notchedOutline": {
                 borderColor: usernameValid ? "#00a32c" : "#ff0000",
-                borderWidth: "1px",
+                borderWidth: "0px",
               },
             }}
           />
@@ -136,22 +147,25 @@ const Login = () => {
             }
             sx={{
               width: "100%",
-              margin: 1,
+              marginTop: 2,
               "& .MuiOutlinedInput-root": {
                 color: "#222222",
-                background: "#efebeb",
+                background: "#22222210",
 
-                borderRadius: 5,
+                borderRadius: 2,
+                borderWidth: "0px",
               },
               "&.Mui-focused": {
-                borderColor: "#ffffff40",
+                borderColor: "#22222240",
                 "& .MuiOutlinedInput-notchedOutline": {
-                  borderColor: "#ffffff40",
+                  // borderColor: "#ffffff00",
+                  borderColor: passwordValid ? "#00a32c" : "#ff0000",
+                  borderWidth: "0px",
                 },
               },
               "& .MuiOutlinedInput-notchedOutline": {
-                borderColor: passwordValid ? "#00a32c" : "#ff0000",
-                borderWidth: "1px",
+                borderColor: "#00a32c",
+                borderWidth: "0px",
               },
             }}
             InputProps={{
@@ -190,14 +204,38 @@ const Login = () => {
               {error?.password}
             </Typography>
           )} */}
+          <Box
+            sx={{
+              width: "100%",
+              display: "flex",
+              justifyContent: "space-between",
+              marginTop: 2,
+            }}
+          >
+            <Button
+              variant="text"
+              type="button"
+              color="success"
+              sx={{
+                width: "fit",
+                // backgroundColor: "#00a32c",
+                textTransform: "initial",
+              }}
+              // onClick={(e) => handleLogin(e)}
+            >
+              <Typography variant="body1" color="#00a32c">
+                Forgot password?
+              </Typography>
+            </Button>
+          </Box>
           <Button
             variant="contained"
             type="submit"
             color="success"
             sx={{
-              width: "90%",
-              backgroundColor: "#00a32c",
-              borderRadius: 5,
+              width: "100%",
+              backgroundColor: "#222222",
+              borderRadius: 2,
             }}
             onClick={(e) => handleLogin(e)}
           >
