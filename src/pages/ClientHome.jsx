@@ -61,6 +61,7 @@ const ClientHome = ({ backgrounds }) => {
           width: "100%",
           height: "100vh",
           overflow: "hidden",
+          paddingBottom:3,
           position: "fixed",
           borderTop: "2px solid #222222a0",
           borderBottom: "2px solid #222222a0",
