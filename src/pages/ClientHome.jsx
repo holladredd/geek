@@ -59,7 +59,7 @@ const ClientHome = ({ backgrounds }) => {
       <Box
         sx={{
           width: "100%",
-          height: "100vh",
+          height: "98vh",
           overflow: "hidden",
           paddingBottom:3,
           position: "fixed",
