@@ -92,7 +92,7 @@ const ClientHome = ({ backgrounds }) => {
         {/* <Login /> */}
         {login ? <Login /> : <SignUp />}
         <Box
-          sx={{
+          sx={{marginBottom:4,
             width: "90%",
             display: "flex",
             justifyContent: "space-between",
