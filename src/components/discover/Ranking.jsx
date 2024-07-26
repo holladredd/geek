@@ -34,7 +34,7 @@ const Ranking = () => {
           display: "flex",
           flexDirection: "column",
           overflowX: "scroll",
-          height: "30vh",
+          height: "45vh",
           // boxShadow: "2px 0px 20px #22222230",
         }}
       >
@@ -49,7 +49,7 @@ const Ranking = () => {
               item
               key={id}
               sx={{
-                width: 95,
+                width: 140,
                 margin: 0.7,
                 height: "fit",
                 backgroundColor: "#00000000",
@@ -61,8 +61,9 @@ const Ranking = () => {
                   component="img"
                   alt=""
                   sx={{
+                    width: "100%",
                     borderRadius: 1.5,
-                    height: 125,
+                    height: "fit",
                     border: "1px solid #22222260",
                     boxShadow: "2px 0px 10px  #222222a0",
                   }}
@@ -80,8 +81,8 @@ const Ranking = () => {
                   <Typography
                     fontFamily="roboto"
                     variant="caption"
-                    color="#222222"
-                    sx={{ fontSize: 15, fontWeight: "bold" }}
+                    color="#000000"
+                    sx={{ fontSize: 13 }}
                   >
                     {book?.title}
                   </Typography>

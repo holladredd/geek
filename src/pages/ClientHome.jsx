@@ -7,10 +7,12 @@ import Login from "./users/Login";
 import { IoMdClose } from "react-icons/io";
 import SignUp from "./users/SignUp";
 import { Button } from "@mui/material";
+import { motion } from "framer-motion";
 
 const ClientHome = ({ backgrounds }) => {
   // const go = useNavigate();
   const [login, setLogin] = useState(true);
+  const [auth, setAuth] = useState(false);
   // setLogin(true);
   // const { backgrounds } = BookState();
   return (
@@ -58,15 +60,59 @@ const ClientHome = ({ backgrounds }) => {
       </Masonry>
       <Box
         sx={{
+          display: auth ? "none" : "flex",
+          position: "fixed",
           width: "100%",
-          height: "95vh",
+          height: "100vh",
+          justifyContent: "center",
+          alignItems: "center",
+          top: "0",
+
+          backgroundColor: "#000000a0",
+        }}
+      >
+        <Button
+          component={motion.button}
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{
+            opacity: 1,
+            scale: 1,
+            transition: { duration: 2 },
+          }}
+          exit={{ opacity: 0, scale: 0 }}
+          variant="contained"
+          type="button"
+          color="success"
+          sx={{
+            fontSize: 20,
+            padding: 0.8,
+            borderRadius: 4,
+            textTransform: "initial",
+          }}
+          onClick={() => setAuth(true)}
+        >
+          Get Started
+        </Button>
+      </Box>
+      <Box
+        component={motion.div}
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{
+          opacity: 1,
+          scale: 1,
+          transition: { duration: 2 },
+        }}
+        exit={{ opacity: 0, scale: 0 }}
+        sx={{
+          width: "100%",
+          height: "100vh",
           overflow: "hidden",
           position: "fixed",
           borderTop: "2px solid #222222a0",
           borderBottom: "2px solid #222222a0",
           top: "0",
           background: "#efebebe0",
-          display: "flex",
+          display: auth ? "flex" : "none",
           justifyContent: "center",
           alignItems: "center",
           flexDirection: "column",
@@ -84,7 +130,7 @@ const ClientHome = ({ backgrounds }) => {
             type="button"
             color="success"
             // sx={{ fontSize: 20 }}
-            onClick={() => setLogin(true)}
+            onClick={() => setAuth(false)}
           >
             <IoMdClose fontSize={30} />
           </Button>
@@ -92,7 +138,7 @@ const ClientHome = ({ backgrounds }) => {
         {/* <Login /> */}
         {login ? <Login /> : <SignUp />}
         <Box
-          sx={{marginBottom:4,
+          sx={{
             width: "90%",
             display: "flex",
             justifyContent: "space-between",

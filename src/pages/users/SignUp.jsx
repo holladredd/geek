@@ -99,7 +99,7 @@ const SignUp = () => {
       <Box
         sx={{
           width: "100%",
-          height: "80vh",
+          height: "85vh",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
@@ -113,7 +113,7 @@ const SignUp = () => {
             display: "flex",
             flexDirection: "column",
             height: "fit",
-           // border: "1px solid #00a32c50",
+            border: "1px solid #00a32c50",
             paddingTop: 2,
             paddingBottom: 2,
           }}
